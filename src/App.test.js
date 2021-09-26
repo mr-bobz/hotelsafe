@@ -37,5 +37,17 @@ describe('SafePanel', () =>{
     expect(clearButton).toBeInTheDocument();
   });
 
+  test('renders all numeric buttons', () => {
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>,
+    );
+    for(let i=0; i<10; i++){
+      const numericButton = screen.getByRole('button', { name: `${i}` });
+      expect(numericButton).toBeInTheDocument();  
+    }
+  });
+
 });
 
