@@ -2,6 +2,8 @@
 
 The application is a basic representation of a hotel safe where you input a PIN, the safe locks with the stored PIN and you open it again by inputting the correct PIN. 
 
+![Alt text](HotelSafe.jpg?raw=true "Hotel Safe Preview")
+
 The rules are as follows:
 
 1. PIN should be 4 digits

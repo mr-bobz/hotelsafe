@@ -5,6 +5,7 @@ export const StyledCode = styled(Form.Control)`
   border: 5px solid black;
   border-radius: 10px;
   font-size: larger;
+  text-align: center;
   height: 80px;
   width: 350px;
   margin: 20px;

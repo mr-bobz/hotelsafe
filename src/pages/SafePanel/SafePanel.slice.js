@@ -36,19 +36,17 @@ export const safePanelSlice = createSlice({
       state.displayValue = initialState.displayValue;
       console.info('Display cleared...');
     },
-    setPIN: (state) => {
+    enterPIN: (state) => {
       //Rule 3: Enter button should store the PIN code IF the safe is not currently locked
       //RUle 5: If safe is open and PIN is a valid 4 digit value, save value to state and use that to update lock indicator light
       if(state.lockStatus !== 'LOCKED' && state.displayValue.length === 4){
         state.currentPIN = state.displayValue;
-        state.indicatorStatus = 'SUCCESS';
         state.lockStatus = 'LOCKED';
         console.info('PIN stored...');
       }
       //Rule 6: If safe is locked and PIN matches stored value, unlock and update indicator light and clear state value/display
       else if(state.lockStatus == 'LOCKED' && state.currentPIN === state.displayValue){
         state.lockStatus = 'OPEN';
-        state.indicatorStatus = 'SUCCESS';
         state.displayValue = initialState.displayValue;
       }
       //Rule 4: If the safe is locked on enter, show an error message (eg. INVALID) in the display window
@@ -62,7 +60,7 @@ export const safePanelSlice = createSlice({
 });
 
 //actions
-export const { typePIN, clearPIN, setPIN } = safePanelSlice.actions;
+export const { typePIN, enterPIN, clearPIN } = safePanelSlice.actions;
 
 //selectors
 export const selectDisplayValue = (state) => state.safePanel.displayValue;

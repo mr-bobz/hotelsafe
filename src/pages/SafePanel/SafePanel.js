@@ -1,15 +1,13 @@
 import styled from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { Keypad } from '../../components/Keypad';
 import { Display } from '../../components/Display';
 import { Indicator } from '../../components/Indicator';
-// import { setPinAction, } from './SafePanel.actions';
-
-import { useSelector, useDispatch } from 'react-redux';
 import {
   typePIN,
   clearPIN,
-  setPIN,
+  enterPIN,
   selectDisplayValue,
   selectLockStatus,
 } from './SafePanel.slice';
@@ -47,7 +45,7 @@ export const SafePanel = () => {
       <Keypad
         handleNumber={(key) => dispatch(typePIN(key))}
         handleClear={(key) => dispatch(clearPIN(key))}
-        handleEnter={(key) => dispatch(setPIN(key))}
+        handleEnter={(key) => dispatch(enterPIN(key))}
       />
       <StyledDisplayUnit>
         <Display value={displayValue} />
